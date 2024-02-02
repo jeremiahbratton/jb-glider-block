@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jeremiahbratton/jb-glider-carousel",
+	"version": "0.1.0",
+	"title": "Glider Carousel",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Carousel block that uses glider js to manage the carousel.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": ["wide", "full"],
+		"alignWide": true,
+		"reusable": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"slidesToShow": {
+			"type": "number",
+			"default": 1
+		},
+		"slidesToScroll": {
+			"type": "number",
+			"default": 1
+		},
+		"arrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"dots": {
+			"type": "boolean",
+			"default": true
+		},
+		"rewind": {
+			"type": "boolean",
+			"default": true
+		},
+		"draggable": {
+			"type": "boolean",
+			"default": true
+		},
+		"scrollLock": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "jb-glider-carousel",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": ["file:./dependency/glider.min.css", "file:./index.css"],
+	"viewScript": ["file:./dependency/glider.min.js", "file:./view.js"]
+}
