@@ -11,8 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import {ToggleControl, Panel, PanelBody, PanelRow, __experimentalNumberControl as NumberControl} from '@wordpress/components';
+import { useState } from 'react';
+import { useBlockProps, useSetting, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { ToggleControl, Panel, ColorPalette, ColorPicker, PanelBody, PanelRow, __experimentalNumberControl as NumberControl, __experimentalPanelColorGradientSettings as PanelColorGradientSettings } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,6 +33,11 @@ import './editor.scss';
  */
 export default function Edit( {attributes, setAttributes} ) {
 	let {dots,arrows,rewind,scrollLock, draggable, slidesToShow, slidesToScroll, blockID} = attributes;
+	const [buttonBackground, setbuttonBackground] = useState( attributes.buttonBackgroundColor );
+	const [buttonBorderColor, setbuttonBorderColor] = useState( attributes.buttonBorderColor );
+	const [activeButtonBackground, setActiveButtonBackground] = useState( attributes.activeButtonBackgroundColor );
+	const [hoverButtonBackground, setHoverbuttonBackground] = useState( attributes.hoverButtonBackgroundColor );
+	const [buttonTextColor, setButtonTextColor] = useState( attributes.buttonTextColor );
 
 	return (
 		<>
@@ -83,6 +89,83 @@ export default function Edit( {attributes, setAttributes} ) {
 							}
 						/>
 					</PanelRow>
+					</PanelBody>
+					<PanelBody title="Design" initialOpen={false}>
+						<PanelRow>
+							<h3>Button Background Color</h3>
+						</PanelRow>
+						<PanelRow>
+							<ColorPalette 
+								value={ buttonBackground }
+								colors={[...useSetting( 'color.palette' )]}
+								onChange = {
+									( value ) => {
+										setbuttonBackground( value );
+										setAttributes( { buttonBackgroundColor: value } );
+									}
+								}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<h3>Hover Button Background Color</h3>
+						</PanelRow>
+						<PanelRow>
+							<ColorPalette 
+								value={ hoverButtonBackground }
+								colors={[...useSetting( 'color.palette' )]}
+								onChange = {
+									( value ) => {
+										setHoverbuttonBackground( value );
+										setAttributes( { hoverButtonBackgroundColor: value } );
+									}
+								}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<h3>Active Button Background Color</h3>
+						</PanelRow>
+						<PanelRow>
+							<ColorPalette 
+								value={ activeButtonBackground }
+								colors={[...useSetting( 'color.palette' )]}
+								onChange = {
+									( value ) => {
+										setActiveButtonBackground( value );
+										setAttributes( { activeButtonBackgroundColor: value } );
+									}
+								}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<h3>Button Text Color</h3>
+						</PanelRow>
+						<PanelRow>
+							<ColorPalette 
+								value={ buttonTextColor }
+								colors={[...useSetting( 'color.palette' )]}
+								onChange = {
+									( value ) => {
+										setButtonTextColor( value );
+										setAttributes( { buttonTextColor: value } );
+									}
+								}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<h3>Button Border Color</h3>
+						</PanelRow>
+						<PanelRow>
+							<ColorPalette 
+								value={ buttonBorderColor }
+								colors={[...useSetting( 'color.palette' )]}
+								onChange = {
+									( value ) => {
+										setbuttonBorderColor( value );
+										setAttributes( { buttonBorderColor: value } );
+									}
+								}
+							/>
+						</PanelRow>
 					</PanelBody>
 					<PanelBody title="Behavior" initialOpen={false}>
 						<PanelRow>
@@ -142,6 +225,12 @@ export default function Edit( {attributes, setAttributes} ) {
 		</InspectorControls>
 		<section { ...useBlockProps() }>
 			<InnerBlocks/>
+			<div class="dots glider-dots" role="tablist">
+				<button role="tab" style={{backgroundColor: buttonBackground}} class="glider-dot"></button>
+				<button role="tab" style={{backgroundColor: buttonBackground}} class="glider-dot"></button>
+				<button role="tab" style={{backgroundColor: activeButtonBackground, borderColor: buttonBorderColor}} class="glider-dot active"></button>
+				<button role="tab" style={{backgroundColor: buttonBackground}} class="glider-dot"></button>
+			</div>
 		</section>
 		</>
 	);

@@ -20,12 +20,12 @@ export default function save( {attributes} ) {
 	console.log(blockProps);
 	
 	return (
-		<div { ...blockProps }>
+		<div { ...blockProps } style={`--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor}; --buttonTextColor: ${attributes.buttonTextColor}`}>
 		<section 
 			id={attributes.blockID}
 			className = "jb-glider-container"
 			data-slidesToShow={attributes.slidesToShow}
-		 	data-slideToScroll={attributes.slidesToScroll}
+		 	data-slidesToScroll={attributes.slidesToScroll}
 			data-arrows={attributes.arrows}
 			data-dots={attributes.dots}
 			data-rewind={attributes.rewind}
@@ -36,12 +36,12 @@ export default function save( {attributes} ) {
 		</section>
 		{attributes.arrows ? (
 			<>
-				<button aria-label="Previous" class="glider-prev" data-parent={attributes.blockID}>«</button>
-				<button aria-label="Next" class="glider-next" data-parent={attributes.blockID}>»</button>
+				<button aria-label="Previous" style={`--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor};`} class="glider-prev" data-parent={attributes.blockID}><span>«</span></button>
+				<button aria-label="Next" style={`--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor};`} class="glider-next" data-parent={attributes.blockID}><span>»</span></button>
 			</>
 		) : null }
 		{attributes.dots ? (
-			<div class="dots" data-parent={attributes.blockID}></div>
+			<div class="dots" data-parent={attributes.blockID} style={`--dotBackgroundColor: ${attributes.buttonBackgroundColor}; --activeDotBackgroundColor: ${attributes.activeButtonBackgroundColor}; --dot-hover-color: ${attributes.hoverButtonBackgroundColor}; --dotBorderColor: ${attributes.buttonBorderColor};`}></div>
 		) : null }
 		</div>
 	);

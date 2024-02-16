@@ -38,6 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -68,6 +69,11 @@ function Edit({
     slidesToScroll,
     blockID
   } = attributes;
+  const [buttonBackground, setbuttonBackground] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.buttonBackgroundColor);
+  const [buttonBorderColor, setbuttonBorderColor] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.buttonBorderColor);
+  const [activeButtonBackground, setActiveButtonBackground] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.activeButtonBackgroundColor);
+  const [hoverButtonBackground, setHoverbuttonBackground] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.hoverButtonBackgroundColor);
+  const [buttonTextColor, setButtonTextColor] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(attributes.buttonTextColor);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
     header: "Glider Options"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -98,6 +104,54 @@ function Edit({
     onChange: value => {
       setAttributes({
         draggable: value
+      });
+    }
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Design",
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Button Background Color")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    value: buttonBackground,
+    colors: [...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)('color.palette')],
+    onChange: value => {
+      setbuttonBackground(value);
+      setAttributes({
+        buttonBackgroundColor: value
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Hover Button Background Color")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    value: hoverButtonBackground,
+    colors: [...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)('color.palette')],
+    onChange: value => {
+      setHoverbuttonBackground(value);
+      setAttributes({
+        hoverButtonBackgroundColor: value
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Active Button Background Color")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    value: activeButtonBackground,
+    colors: [...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)('color.palette')],
+    onChange: value => {
+      setActiveButtonBackground(value);
+      setAttributes({
+        activeButtonBackgroundColor: value
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Button Text Color")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    value: buttonTextColor,
+    colors: [...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)('color.palette')],
+    onChange: value => {
+      setButtonTextColor(value);
+      setAttributes({
+        buttonTextColor: value
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Button Border Color")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+    value: buttonBorderColor,
+    colors: [...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)('color.palette')],
+    onChange: value => {
+      setbuttonBorderColor(value);
+      setAttributes({
+        buttonBorderColor: value
       });
     }
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -145,7 +199,35 @@ function Edit({
     }
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "dots glider-dots",
+    role: "tablist"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    role: "tab",
+    style: {
+      backgroundColor: buttonBackground
+    },
+    class: "glider-dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    role: "tab",
+    style: {
+      backgroundColor: buttonBackground
+    },
+    class: "glider-dot"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    role: "tab",
+    style: {
+      backgroundColor: activeButtonBackground,
+      borderColor: buttonBorderColor
+    },
+    class: "glider-dot active"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    role: "tab",
+    style: {
+      backgroundColor: buttonBackground
+    },
+    class: "glider-dot"
+  }))));
 }
 
 /***/ }),
@@ -159,11 +241,10 @@ function Edit({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _dependency_glider_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dependency/glider.min.css */ "./src/glider/dependency/glider.min.css");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/glider/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/glider/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/glider/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/glider/block.json");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/glider/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/glider/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/glider/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/glider/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -178,7 +259,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-
+// import './dependency/glider.min.css';
 
 
 /**
@@ -193,15 +274,15 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_5__.name, {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
@@ -244,12 +325,13 @@ function save({
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   console.log(blockProps);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...blockProps
+    ...blockProps,
+    style: `--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor}; --buttonTextColor: ${attributes.buttonTextColor}`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     id: attributes.blockID,
     className: "jb-glider-container",
     "data-slidesToShow": attributes.slidesToShow,
-    "data-slideToScroll": attributes.slidesToScroll,
+    "data-slidesToScroll": attributes.slidesToScroll,
     "data-arrows": attributes.arrows,
     "data-dots": attributes.dots,
     "data-rewind": attributes.rewind,
@@ -257,29 +339,20 @@ function save({
     "data-draggable": attributes.draggable
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)), attributes.arrows ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     "aria-label": "Previous",
+    style: `--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor};`,
     class: "glider-prev",
     "data-parent": attributes.blockID
-  }, "\xAB"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "\xAB")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     "aria-label": "Next",
+    style: `--arrowBackgroundColor: ${attributes.buttonBackgroundColor}; --arrow-hover-color: ${attributes.hoverButtonBackgroundColor}; --arrowBorderColor: ${attributes.buttonBorderColor};`,
     class: "glider-next",
     "data-parent": attributes.blockID
-  }, "\xBB")) : null, attributes.dots ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "\xBB"))) : null, attributes.dots ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "dots",
-    "data-parent": attributes.blockID
+    "data-parent": attributes.blockID,
+    style: `--dotBackgroundColor: ${attributes.buttonBackgroundColor}; --activeDotBackgroundColor: ${attributes.activeButtonBackgroundColor}; --dot-hover-color: ${attributes.hoverButtonBackgroundColor}; --dotBorderColor: ${attributes.buttonBorderColor};`
   }) : null);
 }
-
-/***/ }),
-
-/***/ "./src/glider/dependency/glider.min.css":
-/*!**********************************************!*\
-  !*** ./src/glider/dependency/glider.min.css ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ }),
 
@@ -363,7 +436,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jeremiahbratton/jb-glider-carousel","version":"0.1.0","title":"Glider Carousel","category":"widgets","icon":"smiley","description":"Carousel block that uses glider js to manage the carousel.","example":{},"supports":{"html":false,"anchor":true,"align":["wide","full"],"alignWide":true,"reusable":true,"spacing":{"margin":true,"padding":true}},"attributes":{"slidesToShow":{"type":"number","default":1},"slidesToScroll":{"type":"number","default":1},"arrows":{"type":"boolean","default":true},"dots":{"type":"boolean","default":true},"rewind":{"type":"boolean","default":true},"draggable":{"type":"boolean","default":true},"scrollLock":{"type":"boolean","default":true}},"textdomain":"jb-glider-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":["file:./dependency/glider.min.css","file:./index.css"],"viewScript":["file:./dependency/glider.min.js","file:./view.js"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jeremiahbratton/jb-glider-carousel","version":"0.1.0","title":"Glider Carousel","category":"widgets","icon":"smiley","description":"Carousel block that uses glider js to manage the carousel.","example":{},"supports":{"html":false,"anchor":true,"align":["wide","full"],"alignWide":true,"reusable":true,"spacing":{"margin":true,"padding":true}},"allowedBlocks":["core/pullquote","core/media-text","core/cover","core/image"],"attributes":{"slidesToShow":{"type":"number","default":1},"slidesToScroll":{"type":"number","default":1},"arrows":{"type":"boolean","default":true},"dots":{"type":"boolean","default":true},"buttonBackgroundColor":{"type":"string","default":"#ccc"},"activeButtonBackgroundColor":{"type":"string","default":"#888"},"hoverButtonBackgroundColor":{"type":"string","default":"#666"},"buttonBorderColor":{"type":"string","default":"#222"},"buttonTextColor":{"type":"string","default":"#000"},"rewind":{"type":"boolean","default":true},"draggable":{"type":"boolean","default":true},"scrollLock":{"type":"boolean","default":true}},"textdomain":"jb-glider-carousel","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":["file:./dependency/glider.min.js","file:./view.js"]}');
 
 /***/ })
 

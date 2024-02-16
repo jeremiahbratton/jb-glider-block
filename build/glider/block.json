@@ -22,6 +22,12 @@
       "padding": true
     }
   },
+  "allowedBlocks": [
+    "core/pullquote",
+    "core/media-text",
+    "core/cover",
+    "core/image"
+  ],
   "attributes": {
     "slidesToShow": {
       "type": "number",
@@ -39,6 +45,26 @@
       "type": "boolean",
       "default": true
     },
+    "buttonBackgroundColor": {
+      "type": "string",
+      "default": "#ccc"
+    },
+    "activeButtonBackgroundColor": {
+      "type": "string",
+      "default": "#888"
+    },
+    "hoverButtonBackgroundColor": {
+      "type": "string",
+      "default": "#666"
+    },
+    "buttonBorderColor": {
+      "type": "string",
+      "default": "#222"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#000"
+    },
     "rewind": {
       "type": "boolean",
       "default": true
@@ -55,10 +81,7 @@
   "textdomain": "jb-glider-carousel",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": [
-    "file:./dependency/glider.min.css",
-    "file:./index.css"
-  ],
+  "style": "file:./style-index.css",
   "viewScript": [
     "file:./dependency/glider.min.js",
     "file:./view.js"
